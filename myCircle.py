@@ -6,33 +6,33 @@ class Circle:
             raise ValueError("Radius cannot be negative") 
         else:
             self.radius=radius
-            
+                        
         #self.area=Circle.k * (self.radius ** 2)
   
     #So the Property keyword let's us access a method as if it were an attribute
     #And the symbol {} get's the most current value for the variable radius
     
     @property
-    def radius(self):       #I want to ensure that when radius is set from outside the class, the value is not negative                            
+    def radius(self):                                   
         return self._radius
     
     @radius.setter
     def radius(self,radius):
-        if radius < 0:
+        if radius < 0:                                  #I want to ensure that when radius is set from outside the class, the value is not negative
             raise ValueError("Radius cannot be negative") 
         else:
             self._radius=radius
-    @property      
+    @property   
     def diameter(self):
         if self.radius < 0:
             raise ValueError("Radius cannot be negative") 
         else:
             return '{}'.format(self.radius * 2)
-    
     @diameter.setter
     def diameter(self,diameter):
-        self.radius=(self.diameter)/2
-        
+        self._diameter=diameter
+        self.radius=int(self._diameter)/2
+           
     @property
     def area(self):
         if self.radius < 0:
